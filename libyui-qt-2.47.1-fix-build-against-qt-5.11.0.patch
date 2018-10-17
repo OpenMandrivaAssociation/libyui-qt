@@ -1,0 +1,21 @@
+From 4bdb908b21565886bdf26290a28d0ff241f0d546 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Imobach=20Gonz=C3=A1lez=20Sosa?= <igonzalezsosa@suse.com>
+Date: Mon, 7 May 2018 11:55:48 +0100
+Subject: [PATCH] Replace qt5_use_modules with target_link_libraries
+
+---
+ src/CMakeLists.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index c26deb4..5134b13 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -12,4 +12,6 @@ add_definitions(
+ qt5_wrap_ui(${TARGETLIB}_SOURCES "${${TARGETLIB}_WRAP_UI}")
+ 
+ PROCESS_SOURCES()
+-qt5_use_modules( ${TARGETLIB} Core Gui Widgets Svg X11Extras )
++target_link_libraries(
++  ${TARGETLIB} Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Svg Qt5::X11Extras
++  )
