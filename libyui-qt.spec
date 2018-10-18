@@ -19,11 +19,12 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Svg)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5X11Extras)
-BuildRequires:	cmake(ECM)
+BuildRequires:	cmake
+BuildRequires:	ninja
+BuildRequires:	qmake5
 BuildRequires:	boost-devel
 BuildRequires:	doxygen
 BuildRequires:	texlive
-BuildRequires:	texlive-dist
 BuildRequires:	graphviz
 BuildRequires:	ghostscript
 BuildRequires:	pkgconfig(fontconfig)
