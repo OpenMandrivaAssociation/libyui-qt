@@ -4,7 +4,7 @@
 
 Name:		libyui-qt
 Version:	2.47.1
-Release:	1
+Release:	2
 Summary:	UI abstraction library - Qt plugin
 License:	LGPLv2+
 Group:		System/Libraries
