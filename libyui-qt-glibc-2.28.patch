@@ -1,0 +1,11 @@
+diff -up libyui-qt-2.47.1/src/YQUI.cc.omv~ libyui-qt-2.47.1/src/YQUI.cc
+--- libyui-qt-2.47.1/src/YQUI.cc.omv~	2018-12-06 22:18:08.626844161 +0100
++++ libyui-qt-2.47.1/src/YQUI.cc	2018-12-06 22:18:23.790875125 +0100
+@@ -22,6 +22,7 @@
+ 
+ /-*/
+ 
++#define _DEFAULT_SOURCE 1
+ #include <rpc/types.h>		// MAXHOSTNAMELEN
+ #include <dlfcn.h>
+ #include <libintl.h>

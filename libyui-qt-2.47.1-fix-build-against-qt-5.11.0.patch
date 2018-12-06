@@ -19,3 +19,66 @@ index c26deb4..5134b13 100644
 +target_link_libraries(
 +  ${TARGETLIB} Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Svg Qt5::X11Extras
 +  )
+diff -up libyui-qt-2.47.1/src/YQWizard.cc.omv~ libyui-qt-2.47.1/src/YQWizard.cc
+--- libyui-qt-2.47.1/src/YQWizard.cc.omv~	2018-12-06 22:14:37.722410596 +0100
++++ libyui-qt-2.47.1/src/YQWizard.cc	2018-12-06 22:16:44.054670995 +0100
+@@ -46,6 +46,7 @@
+ #include <qtabwidget.h>
+ #include <qtoolbutton.h>
+ #include <QGraphicsDropShadowEffect>
++#include <QMetaMethod>
+ 
+ #include "QY2ListView.h"
+ #include "QY2Styler.h"
+@@ -970,9 +971,9 @@ void YQWizard::destroyButtons()
+ }
+ 
+ 
+-void YQWizard::connectNotify ( const char * signal )
++void YQWizard::connectNotify ( const QMetaMethod &signal )
+ {
+-    if ( QString( signal ).contains( "nextClicked()" ) )
++    if ( QString( signal.name() ).contains( "nextClicked()" ) )
+     {
+ 	yuiDebug() << "nextClicked connected, no longer directly sending button events" << std::endl;
+ 	_sendButtonEvents = false;
+@@ -980,9 +981,9 @@ void YQWizard::connectNotify ( const cha
+ }
+ 
+ 
+-void YQWizard::disconnectNotify ( const char * signal )
++void YQWizard::disconnectNotify ( const QMetaMethod &signal )
+ {
+-    if ( QString( signal ).contains( "nextClicked()" ) )
++    if ( QString( signal.name() ).contains( "nextClicked()" ) )
+     {
+ 	yuiDebug() << "nextClicked disconnected, directly sending button events again" << std::endl;
+ 	_sendButtonEvents = true;
+diff -up libyui-qt-2.47.1/src/YQWizard.h.omv~ libyui-qt-2.47.1/src/YQWizard.h
+--- libyui-qt-2.47.1/src/YQWizard.h.omv~	2018-12-06 22:13:47.924307278 +0100
++++ libyui-qt-2.47.1/src/YQWizard.h	2018-12-06 22:15:51.570563087 +0100
+@@ -31,6 +31,7 @@
+ 
+ #include <qpixmap.h>
+ #include <qstringlist.h>
++#include <QMetaMethod>
+ #include "QY2ListView.h"
+ #include <QGridLayout>
+ #include <QSplitter>
+@@ -520,14 +521,14 @@ protected:
+      *
+      * Reimplemented from QObject.
+      **/
+-    void connectNotify ( const char * signal );
++    void connectNotify ( const QMetaMethod &signal );
+ 
+     /**
+      * Notification that a signal is being disconnected.
+      *
+      * Reimplemented from QObject.
+      **/
+-    void disconnectNotify ( const char * signal );
++    void disconnectNotify ( const QMetaMethod &signal );
+ 
+     /**
+      * Set a button's label.

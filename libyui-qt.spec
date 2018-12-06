@@ -11,6 +11,7 @@ Group:		System/Libraries
 Url:		https://github.com/libyui/libyui-qt
 Source0:	https://github.com/libyui/libyui-qt/v%{version}/%{name}-%{version}.tar.gz
 Patch0:		libyui-qt-2.47.1-fix-build-against-qt-5.11.0.patch
+Patch1:		libyui-qt-glibc-2.28.patch
 
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libyui) >= 3.1.2
@@ -69,7 +70,6 @@ This package provides headers files for libyui-qt development.
 %{_libdir}/yui/lib*.so
 %{_libdir}/pkgconfig/libyui-qt.pc
 %{_libdir}/cmake/libyui-qt
-%doc %{_docdir}/libyui-qt%{major}
 
 #-----------------------------------------------------------------------
 
@@ -82,15 +82,9 @@ This package provides headers files for libyui-qt development.
     -DYPREFIX=%{_prefix}  \
     -DDOC_DIR=%{_docdir} \
     -DLIB_DIR=%{_lib}    \
-    -DENABLE_DEBUG=1 \
-    -DINSTALL_DOCS=yes \
-    -DCMAKE_BUILD_TYPE=RELWITHDEBINFO \
     -G Ninja
 
 %ninja_build
-%ninja_build docs
 
 %install
 %ninja_install -C build
-
-find "%{buildroot}" -name "*.la" -delete
