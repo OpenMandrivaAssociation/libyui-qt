@@ -20,6 +20,7 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Svg)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5X11Extras)
+BuildRequires:	pkgconfig(libtirpc)
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	qmake5
