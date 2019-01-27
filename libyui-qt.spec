@@ -2,9 +2,10 @@
 %define libname %mklibname yui %{major}-qt
 %define develname %mklibname yui-qt -d
 
+# (crazy) why do we use that old version ?
 Name:		libyui-qt
 Version:	2.47.1
-Release:	2
+Release:	3
 Summary:	UI abstraction library - Qt plugin
 License:	LGPLv2+
 Group:		System/Libraries
@@ -12,6 +13,7 @@ Url:		https://github.com/libyui/libyui-qt
 Source0:	https://github.com/libyui/libyui-qt/v%{version}/%{name}-%{version}.tar.gz
 Patch0:		libyui-qt-2.47.1-fix-build-against-qt-5.11.0.patch
 Patch1:		libyui-qt-glibc-2.28.patch
+Patch2:		try-to-fix-UI-crash.patch
 
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libyui) >= 3.1.2
