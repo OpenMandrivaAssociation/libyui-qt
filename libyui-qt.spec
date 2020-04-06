@@ -76,6 +76,8 @@ This package provides headers files for libyui-qt development.
 %autosetup -p1
 
 %build
+export CC=gcc
+export CXX=g++
 ./bootstrap.sh
 %cmake \
     -DYPREFIX=%{_prefix}  \
