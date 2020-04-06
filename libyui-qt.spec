@@ -76,6 +76,8 @@ This package provides headers files for libyui-qt development.
 %autosetup -p1
 
 %build
+# Need gcc or error: 'YQWizard::connectNotify' hides overloaded virtual function [-Werror,-Woverloaded-virtual]
+# error: 'setPlainTextMode' overrides a member function but is not marked 'override' [-Werror,-Winconsistent-missing-override]
 export CC=gcc
 export CXX=g++
 ./bootstrap.sh
