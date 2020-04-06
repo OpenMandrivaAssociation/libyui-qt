@@ -10,7 +10,6 @@ License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/libyui/libyui-qt
 Source0:	https://github.com/libyui/libyui-qt/v%{version}/%{name}-%{version}.tar.gz
-Patch2:		try-to-fix-UI-crash.patch
 
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libyui) >= 3.9.3
