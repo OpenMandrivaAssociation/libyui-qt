@@ -3,7 +3,7 @@
 %define develname %mklibname yui-qt -d
 
 Name:		libyui-qt
-Version:	2.52.0
+Version:	2.52.3
 Release:	1
 Summary:	UI abstraction library - Qt plugin
 License:	LGPLv2+
