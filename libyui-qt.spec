@@ -10,12 +10,11 @@ License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/libyui/libyui-qt
 Source0:	https://github.com/libyui/libyui-qt/v%{version}/%{name}-%{version}.tar.gz
-Patch0:		libyui-qt-2.47.1-fix-build-against-qt-5.11.0.patch
 Patch1:		libyui-qt-glibc-2.28.patch
 Patch2:		try-to-fix-UI-crash.patch
 
 BuildRequires:	pkgconfig(libpng)
-BuildRequires:	pkgconfig(libyui) >= 3.1.2
+BuildRequires:	pkgconfig(libyui) >= 3.9.3
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Svg)
