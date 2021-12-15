@@ -1,19 +1,19 @@
-%define major 8
+%define major 15
 %define libname %mklibname yui %{major}-qt
 %define develname %mklibname yui-qt -d
 
 # (crazy) why do we use that old version ?
 Name:		libyui-qt
-Version:	2.47.1
-Release:	3
+Version:	4.2.22
+Release:	1
 Summary:	UI abstraction library - Qt plugin
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/libyui/libyui-qt
-Source0:	https://github.com/libyui/libyui-qt/v%{version}/%{name}-%{version}.tar.gz
-Patch0:		libyui-qt-2.47.1-fix-build-against-qt-5.11.0.patch
-Patch1:		libyui-qt-glibc-2.28.patch
-Patch2:		try-to-fix-UI-crash.patch
+Source0:	https://github.com/libyui/libyui-qt/v%{version}/%{name}-%{version}.tar.xz
+#Patch0:		libyui-qt-2.47.1-fix-build-against-qt-5.11.0.patch
+#Patch1:		libyui-qt-glibc-2.28.patch
+#Patch2:		try-to-fix-UI-crash.patch
 
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libyui) >= 3.1.2
@@ -28,7 +28,7 @@ BuildRequires:	ninja
 BuildRequires:	qmake5
 BuildRequires:	boost-devel
 BuildRequires:	doxygen
-BuildRequires:	texlive
+#BuildRequires:	texlive
 BuildRequires:	graphviz
 BuildRequires:	ghostscript
 BuildRequires:	pkgconfig(fontconfig)
@@ -72,7 +72,7 @@ This package provides headers files for libyui-qt development.
 %{_includedir}/yui
 %{_libdir}/yui/lib*.so
 %{_libdir}/pkgconfig/libyui-qt.pc
-%{_libdir}/cmake/libyui-qt
+#%%{_libdir}/cmake/libyui-qt
 
 #-----------------------------------------------------------------------
 
@@ -80,11 +80,12 @@ This package provides headers files for libyui-qt development.
 %autosetup -p1
 
 %build
-./bootstrap.sh
+#./bootstrap.sh
 %cmake \
     -DYPREFIX=%{_prefix}  \
     -DDOC_DIR=%{_docdir} \
     -DLIB_DIR=%{_lib}    \
+    -DWERROR=no \
     -G Ninja
 
 %ninja_build
